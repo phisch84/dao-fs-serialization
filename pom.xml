@@ -17,7 +17,7 @@
         <maven.surfeire.version>2.16</maven.surfeire.version>
         <junit.version>4.12</junit.version>
         <spring.version>4.3.8.RELEASE</spring.version>
-        <ddd.dao.version>2.1.0-SNAPSHOT</ddd.dao.version>
+        <ddd.dao.version>2.1.0.RELEASE</ddd.dao.version>
         <ddd.test-utils.version>0.2.RELEASE</ddd.test-utils.version>
     </properties>
 

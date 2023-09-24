@@ -128,4 +128,11 @@
         </pluginManagement>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/phisch84/dao-fs-serialization</url>
+        </repository>
+    </distributionManagement>
 </project>

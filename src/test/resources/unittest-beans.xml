@@ -1,0 +1,18 @@
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <bean id="FileSystemDO" class="com.schoste.ddd.infrastructure.dal.v2.models.FileSystemDO" scope="prototype" />
+    <bean id="FileSystemDAO" class="com.schoste.ddd.infrastructure.dal.v2.services.fs.FileSystemDAOImpl" scope="singleton">
+        <constructor-arg value="#{systemProperties['java.io.tmpdir']}/dao-fs-serialization/fs" />
+    </bean>
+    
+    <bean id="SerializationDO" class="com.schoste.ddd.infrastructure.dal.v2.models.SerializationDO" scope="prototype" />
+    <bean id="SerializationDAO" class="com.schoste.ddd.infrastructure.dal.v2.services.serialization.SerializationDAOImpl" scope="singleton">
+        <constructor-arg value="#{systemProperties['java.io.tmpdir']}/dao-fs-serialization/ser" />
+    </bean>
+</beans>

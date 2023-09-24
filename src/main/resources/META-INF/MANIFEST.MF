@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Created-By: 2.1.0 SCHOSTE.COM GmbH
+Class-Path: dao-fs-serialization.jar

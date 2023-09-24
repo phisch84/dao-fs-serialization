@@ -24,7 +24,7 @@
     <repositories>
         <repository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/phisch84/</url>
+            <url>https://maven.pkg.github.com/phisch84/dao</url>
         </repository>
     </repositories>
 
@@ -52,8 +52,10 @@
         <!-- Testing -->
         <dependency>
             <groupId>com.schoste.ddd.infrastructure</groupId>
-            <artifactId>dao-test</artifactId>
+            <artifactId>dao</artifactId>
             <version>${ddd.dao.version}</version>
+            <classifier>tests</classifier>
+            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
         <dependency>

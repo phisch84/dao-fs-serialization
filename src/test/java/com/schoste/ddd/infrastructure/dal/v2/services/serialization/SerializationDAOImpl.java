@@ -1,10 +1,11 @@
 package com.schoste.ddd.infrastructure.dal.v2.services.serialization;
 
+import java.util.Spliterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import com.schoste.ddd.infrastructure.dal.v2.models.SerializationDO;
-import com.schoste.ddd.infrastructure.dal.v2.services.serialization.GenericSerializationDAO;
 
 /**
  * Example file system data object used in unit testing of the GenericSerializationDAO implementation
@@ -33,5 +34,12 @@ public class SerializationDAOImpl extends GenericSerializationDAO<SerializationD
 	public SerializationDO createDataObject()
 	{
 		return (SerializationDO) this.applicationContext.getBean(SerializationDO.class);
+	}
+
+	@Override
+	protected Spliterator<SerializationDO> createLazyLoader() throws Exception 
+	{
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'createLazyLoader'");
 	}
 }

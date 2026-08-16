@@ -11,7 +11,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
 import com.schoste.ddd.infrastructure.dal.v2.models.SerializationDO;
-import com.schoste.ddd.infrastructure.dal.v2.services.serialization.SerializationDAOImpl;
 
 /**
  * Test class of the SerializationDAOImpl implementation

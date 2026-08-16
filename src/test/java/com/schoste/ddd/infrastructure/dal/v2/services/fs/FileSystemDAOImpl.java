@@ -1,10 +1,11 @@
 package com.schoste.ddd.infrastructure.dal.v2.services.fs;
 
+import java.util.Spliterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import com.schoste.ddd.infrastructure.dal.v2.models.FileSystemDO;
-import com.schoste.ddd.infrastructure.dal.v2.services.fs.GenericFileSystemDAO;
 
 /**
  * Example file system data object used in unit testing of the GenericFileSystemDAO implementation
@@ -32,5 +33,12 @@ public class FileSystemDAOImpl extends GenericFileSystemDAO<FileSystemDO>
 	public FileSystemDO createDataObject() 
 	{
 		return (FileSystemDO) this.applicationContext.getBean(FileSystemDO.class);
+	}
+
+	@Override
+	protected Spliterator<FileSystemDO> createLazyLoader() throws Exception 
+	{
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'createLazyLoader'");
 	}
 }

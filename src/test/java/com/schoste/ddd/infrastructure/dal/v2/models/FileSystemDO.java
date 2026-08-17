@@ -1,7 +1,5 @@
 package com.schoste.ddd.infrastructure.dal.v2.models;
 
-import com.schoste.ddd.infrastructure.dal.v2.models.GenericFileObject;
-
 /**
  * Example file system data object used in unit testing of the GenericFileSystemDAO implementation
  * 

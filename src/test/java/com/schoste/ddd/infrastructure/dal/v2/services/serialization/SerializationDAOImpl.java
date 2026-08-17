@@ -1,11 +1,13 @@
 package com.schoste.ddd.infrastructure.dal.v2.services.serialization;
 
-import java.util.Spliterator;
+import com.schoste.ddd.infrastructure.dal.v2.models.GenericDataObject;
+import com.schoste.ddd.infrastructure.dal.v2.models.SerializationDO;
+import com.schoste.ddd.infrastructure.dal.v2.services.LazyLoader;
+
+import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-
-import com.schoste.ddd.infrastructure.dal.v2.models.SerializationDO;
 
 /**
  * Example file system data object used in unit testing of the GenericSerializationDAO implementation
@@ -36,10 +38,45 @@ public class SerializationDAOImpl extends GenericSerializationDAO<SerializationD
 		return (SerializationDO) this.applicationContext.getBean(SerializationDO.class);
 	}
 
-	@Override
-	protected Spliterator<SerializationDO> createLazyLoader() throws Exception 
+	protected SerializationDO getSafe(int id)
 	{
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'createLazyLoader'");
+		try
+		{
+			return super.get(id);
+		}
+		catch (Exception e)
+		{
+			return null;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected LazyLoader<Integer, SerializationDO> createLazyLoader() throws Exception 
+	{
+		Function<Integer, GenericDataObject> cv = id -> this.safeDoGet(id);
+		LazyLoader<Integer, SerializationDO> ll = this.applicationContext.getBean(LazyLoader.class, cv, this.storagePath);
+
+		return ll;
+	}
+
+	/**
+	 * Calls the {@link GenericSerializationDAO#doGet(int)} method inside a try-catch block
+	 * 
+	 * @param id the id of the data object to load
+	 * @return the data object with the given id, or null if none was found or on error 
+	 */
+	protected SerializationDO safeDoGet(Integer id)
+	{
+		try
+		{
+			return this.doGet(id);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace(System.err);
+
+			return null;
+		}
 	}
 }

@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import com.schoste.ddd.infrastructure.dal.v2.services.GenericDAO;
-import com.schoste.ddd.infrastructure.dal.v2.services.GenericDataAccessObject;
 import com.schoste.ddd.infrastructure.dal.v2.exceptions.DALException;
 import com.schoste.ddd.infrastructure.dal.v2.models.GenericDataObject;
 
@@ -28,7 +27,7 @@ import com.schoste.ddd.infrastructure.dal.v2.models.GenericDataObject;
  *
  * @param <T> the class of the data object to persist
  */
-public abstract class GenericSerializationDAO<T extends GenericDataObject> extends GenericDAO<T> implements GenericDataAccessObject<T> 
+public abstract class GenericSerializationDAO<T extends GenericDataObject> extends GenericDAO<T>
 {
 	/**
 	 * The directory where the files are serialized to

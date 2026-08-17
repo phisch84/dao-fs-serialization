@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.schoste.ddd.infrastructure</groupId>
     <artifactId>dao-fs-serialization</artifactId>
-    <version>3.0.0.RELEASE</version>
+    <version>3.1.0.RELEASE</version>
     <name>Generic Serialization and File System DAO</name>
     <url>https://www.schoste.com/</url>
 
@@ -15,7 +15,7 @@
         <maven.surfeire.version>3.5.5</maven.surfeire.version>
         <junit.version>4.13.2</junit.version>
         <spring.version>7.0.7</spring.version>
-        <ddd.dao.version>3.1.0.SNAPSHOT</ddd.dao.version>
+        <ddd.dao.version>3.1.0.RELEASE</ddd.dao.version>
         <ddd.test-utils.version>0.3.RELEASE</ddd.test-utils.version>
     </properties>
 
@@ -31,9 +31,6 @@
             <groupId>com.schoste.ddd.infrastructure</groupId>
             <artifactId>dao</artifactId>
             <version>${ddd.dao.version}</version>
-
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../dao/target/dao.jar</systemPath>
         </dependency>
 
         <!-- Spring (DI/AOP/IoC Framework) dependencies -->
@@ -57,8 +54,7 @@
             <version>${ddd.dao.version}</version>
             <classifier>tests</classifier>
             <type>test-jar</type>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../dao/target/dao-tests.jar</systemPath>
+            <scope>test</scope>
         </dependency>
 
         <dependency>

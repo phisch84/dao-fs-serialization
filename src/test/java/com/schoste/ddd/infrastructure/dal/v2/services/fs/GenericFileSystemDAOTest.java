@@ -12,7 +12,6 @@ import java.util.Map;
 import com.schoste.ddd.infrastructure.dal.v2.services.GenericDAOTest;
 import com.schoste.ddd.infrastructure.dal.v2.services.GenericDataAccessObject;
 import com.schoste.ddd.infrastructure.dal.v2.models.GenericFileObject;
-import com.schoste.ddd.infrastructure.dal.v2.services.fs.GenericFileSystemDAO;
 import com.schoste.ddd.testing.v1.TestFiles;
 
 /**

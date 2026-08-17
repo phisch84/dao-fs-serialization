@@ -15,4 +15,6 @@
     <bean id="SerializationDAO" class="com.schoste.ddd.infrastructure.dal.v2.services.serialization.SerializationDAOImpl" scope="singleton">
         <constructor-arg value="#{systemProperties['java.io.tmpdir']}/dao-fs-serialization/ser" />
     </bean>
+
+    <bean id="LazyLoader" class="com.schoste.ddd.infrastructure.dal.v2.services.LazyLoaderImpl" scope="prototype" />
 </beans>

@@ -31,19 +31,23 @@ public class LazyLoaderImpl extends GenericLazyLoader<Integer, GenericDataObject
     @Override
     public boolean tryAdvance(Consumer<? super GenericDataObject> action) 
     {
-        if (!this.storagePathIterator.hasNext()) return false;
+        while (this.storagePathIterator.hasNext())
+        {
+            Path nextFile = (Path)this.storagePathIterator.next();
 
-        Path nextFile = this.storagePathIterator.next();
+			// if there are irregular files or directories, then ignore them and fetch the next
+            if (!Files.isRegularFile(nextFile)) continue;
 
-        if (!Files.isRegularFile(nextFile)) return true;
-        
-        String fileName = nextFile.getFileName().toString();
-        int id = Integer.valueOf(fileName);
-        GenericDataObject nextDataObj = super.sourceRecordToDataObjConversionFn.apply(id);
+            String fileName = nextFile.getFileName().toString();
+            int id = Integer.valueOf(fileName);
+            GenericDataObject nextDataObj = (GenericDataObject)super.sourceRecordToDataObjConversionFn.apply(id);
 
-        action.accept(nextDataObj);
+            action.accept(nextDataObj);
 
-        return true;
+            return true;
+        }
+
+        return false;
     }
 
     @Override
